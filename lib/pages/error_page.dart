@@ -65,11 +65,12 @@ class UiGoError extends StatelessWidget {
               // Botón de refresh
               ElevatedButton.icon(
                 onPressed: onPressed,
-                icon: Icon(
+                icon: const Icon(
                   Icons.refresh,
-                  color: Theme.of(context).primaryColor,
+                  color: Colors.white,
                 ),
-                label: Text(buttonText),
+                label: Text(buttonText,
+                    style: const TextStyle(color: Colors.white)),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Theme.of(context).primaryColor,
                   padding:
