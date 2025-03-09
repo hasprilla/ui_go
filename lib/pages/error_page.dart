@@ -18,7 +18,6 @@ class UiGoError extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Obtener el tema actual
     final theme = Theme.of(context);
     final isDarkMode = theme.brightness == Brightness.dark;
 
@@ -36,14 +35,12 @@ class UiGoError extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Icono de error
               Icon(
                 Icons.error_outline,
                 size: 80,
                 color: isDarkMode ? Colors.red[300] : Colors.red[700],
               ),
               const SizedBox(height: 20),
-              // Título del error
               Text(
                 message,
                 style: theme.textTheme.headlineSmall?.copyWith(
@@ -52,17 +49,7 @@ class UiGoError extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 10),
-              // Mensaje de error
-              // Text(
-              //   error?.toString() ?? 'Error desconocido',
-              //   style: theme.textTheme.bodyMedium?.copyWith(
-              //     color: isDarkMode ? Colors.grey[400] : Colors.grey[700],
-              //   ),
-              //   textAlign: TextAlign.center,
-              // ),
               const SizedBox(height: 30),
-
-              // Botón de refresh
               ElevatedButton.icon(
                 onPressed: onPressed,
                 icon: const Icon(
