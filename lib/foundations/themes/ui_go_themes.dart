@@ -2,98 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ui_go/tokens/colors.dart';
 
-// import '../../ui_go.dart';
-
-// final uiGoLigthTheme = ThemeData(
-//     useMaterial3: true,
-
-//     // primaryColor: UiGoColorsFoundation.primaryColor,
-//     // primarySwatch: UiGoColorsFoundation.primaryColorMat,
-//     // backgroundColor: UiGoColorsFoundation.bgGray,
-//     textTheme: const TextTheme(
-//         // headline1: TextStyle(
-//         //   fontFamily: UiGoTypographyFoundation.familyHeadings,
-//         //   fontWeight: FontWeight.w700,
-//         //   fontSize: UiGoTypographyFoundation.fontSizeH1,
-//         //   color: UiGoColorsFoundation.darkTextColors,
-//         // ),
-//         // headline2: TextStyle(
-//         //   fontFamily: UiGoTypographyFoundation.familyHeadings,
-//         //   fontWeight: FontWeight.w900,
-//         //   fontSize: UiGoTypographyFoundation.fontSizeH2,
-//         //   color: UiGoColorsFoundation.darkTextColors,
-//         // ),
-//         // headline3: TextStyle(
-//         //   fontFamily: UiGoTypographyFoundation.familyHeadings,
-//         //   fontWeight: FontWeight.w400,
-//         //   fontSize: UiGoTypographyFoundation.fontSizeH3,
-//         //   color: UiGoColorsFoundation.darkTextColors,
-//         // ),
-//         // headline4: TextStyle(
-//         //   fontFamily: UiGoTypographyFoundation.familyHeadings,
-//         //   fontWeight: FontWeight.w400,
-//         //   fontSize: UiGoTypographyFoundation.fontSizeH4,
-//         //   color: UiGoColorsFoundation.darkTextColors,
-//         // ),
-//         // headline5: TextStyle(
-//         //   fontFamily: UiGoTypographyFoundation.familyHeadings,
-//         //   fontWeight: FontWeight.w400,
-//         //   fontSize: UiGoTypographyFoundation.fontSizeH5,
-//         //   color: UiGoColorsFoundation.darkTextColors,
-//         // ),
-//         // headline6: TextStyle(
-//         //   fontFamily: UiGoTypographyFoundation.familyHeadings,
-//         //   fontWeight: FontWeight.w400,
-//         //   fontSize: UiGoTypographyFoundation.fontSizeH6,
-//         //   color: UiGoColorsFoundation.darkTextColors,
-//         // ),
-//         ));
-
-// final uiGoDarkTheme = ThemeData(
-//   useMaterial3: true,
-//   // primaryColor: UiGoColorsFoundation.primaryColor,
-//   // primarySwatch: UiGoColorsFoundation.primaryColorMat,
-//   // backgroundColor: UiGoColorsFoundation.bgDark,
-//   textTheme: const TextTheme(
-//       // headline1: TextStyle(
-//       //   fontFamily: UiGoTypographyFoundation.familyHeadings,
-//       //   fontWeight: FontWeight.w700,
-//       //   fontSize: UiGoTypographyFoundation.fontSizeH1,
-//       //   color: UiGoColorsFoundation.ligthTextColors,
-//       // ),
-//       // headline2: TextStyle(
-//       //   fontFamily: UiGoTypographyFoundation.familyHeadings,
-//       //   fontWeight: FontWeight.w900,
-//       //   fontSize: UiGoTypographyFoundation.fontSizeH2,
-//       //   color: UiGoColorsFoundation.ligthTextColors,
-//       // ),
-//       // headline3: TextStyle(
-//       //   fontFamily: UiGoTypographyFoundation.familyHeadings,
-//       //   fontWeight: FontWeight.w400,
-//       //   fontSize: UiGoTypographyFoundation.fontSizeH3,
-//       //   color: UiGoColorsFoundation.ligthTextColors,
-//       // ),
-//       // headline4: TextStyle(
-//       //   fontFamily: UiGoTypographyFoundation.familyHeadings,
-//       //   fontWeight: FontWeight.w400,
-//       //   fontSize: UiGoTypographyFoundation.fontSizeH4,
-//       //   color: UiGoColorsFoundation.darkTextColors,
-//       // ),
-//       // headline5: TextStyle(
-//       //   fontFamily: UiGoTypographyFoundation.familyHeadings,
-//       //   fontWeight: FontWeight.w400,
-//       //   fontSize: UiGoTypographyFoundation.fontSizeH5,
-//       //   color: UiGoColorsFoundation.darkTextColors,
-//       // ),
-//       // headline6: TextStyle(
-//       //   fontFamily: UiGoTypographyFoundation.familyHeadings,
-//       //   fontWeight: FontWeight.w400,
-//       //   fontSize: UiGoTypographyFoundation.fontSizeH6,
-//       //   color: UiGoColorsFoundation.ligthTextColors,
-//       // ),
-//       ),
-// );
-
 ThemeData getTheme(bool darkMode) {
   if (darkMode) {
     final darkTheme = ThemeData.dark();
@@ -102,7 +10,7 @@ ThemeData getTheme(bool darkMode) {
     const whiteStyle = TextStyle(color: Colors.black);
     return darkTheme.copyWith(
       appBarTheme: const AppBarTheme(
-        backgroundColor: UiGoColors.bGBlack,
+        backgroundColor: UiGoColors.navy,
         elevation: 0,
       ),
       textTheme: GoogleFonts.nunitoSansTextTheme(
@@ -113,13 +21,26 @@ ThemeData getTheme(bool darkMode) {
           bodySmall: textTheme.bodySmall?.merge(whiteStyle),
         ),
       ),
+      floatingActionButtonTheme: const FloatingActionButtonThemeData(
+        backgroundColor: UiGoColors.blue,
+        foregroundColor: Colors.white,
+      ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: UiGoColors.blue,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(6),
+          ),
+        ),
+      ),
+      visualDensity: VisualDensity.adaptivePlatformDensity,
       scaffoldBackgroundColor: UiGoColors.bGBlack,
       canvasColor: UiGoColors.bGBlack,
       switchTheme: SwitchThemeData(
-        trackColor: MaterialStateProperty.all(
-          Colors.lightBlue.withOpacity(0.5),
+        trackColor: WidgetStateProperty.all(
+          Colors.lightBlue.withValues(alpha: 0.5),
         ),
-        thumbColor: MaterialStateProperty.all(
+        thumbColor: WidgetStateProperty.all(
           Colors.blue,
         ),
       ),
@@ -146,7 +67,7 @@ ThemeData getTheme(bool darkMode) {
       ),
     ),
     appBarTheme: const AppBarTheme(
-      // backgroundColor: Colors.white,
+      backgroundColor: UiGoColors.lightPurple,
       elevation: 0,
       iconTheme: IconThemeData(
         color: UiGoColors.bGBlack,
@@ -155,6 +76,19 @@ ThemeData getTheme(bool darkMode) {
         color: UiGoColors.bGBlack,
       ),
     ),
+    floatingActionButtonTheme: const FloatingActionButtonThemeData(
+      backgroundColor: UiGoColors.blue,
+      foregroundColor: Colors.white,
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: UiGoColors.blue,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(6),
+        ),
+      ),
+    ),
+    visualDensity: VisualDensity.adaptivePlatformDensity,
     tabBarTheme: const TabBarTheme(
       labelColor: UiGoColors.bGBlack,
     ),

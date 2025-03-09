@@ -23,4 +23,9 @@ class UiGoColorsFoundation {
   static const Color succcessBgColor = UiGoColors.statusSuccess01;
   static const Color dangerBgColor = UiGoColors.statusDanger01;
   static const Color errorBgColor = UiGoColors.statusDanger02;
+
+  static const Color navy = Color(0xFF0C134F);
+  static const Color blue = Color(0xFF1D267D);
+  static const Color purple = Color(0xFF5C469C);
+  static const Color lightPurple = Color(0xFFD4ADFC);
 }
