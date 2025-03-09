@@ -3,8 +3,18 @@ import 'package:flutter/material.dart';
 class UiGoError extends StatelessWidget {
   final Exception? error;
   final Function()? onPressed;
+  final String title;
+  final String message;
+  final String buttonText;
 
-  const UiGoError({super.key, required this.error, this.onPressed});
+  const UiGoError({
+    super.key,
+    required this.error,
+    this.onPressed,
+    required this.title,
+    required this.message,
+    required this.buttonText,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +24,9 @@ class UiGoError extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Error'),
+        title: Text(
+          title,
+        ),
         centerTitle: true,
         elevation: 0,
       ),
@@ -33,7 +45,7 @@ class UiGoError extends StatelessWidget {
               const SizedBox(height: 20),
               // Título del error
               Text(
-                '¡Ups! Algo salió mal',
+                message,
                 style: theme.textTheme.headlineSmall?.copyWith(
                   fontWeight: FontWeight.bold,
                   color: isDarkMode ? Colors.white : Colors.black,
@@ -49,17 +61,17 @@ class UiGoError extends StatelessWidget {
               //   textAlign: TextAlign.center,
               // ),
               const SizedBox(height: 30),
+
               // Botón de refresh
               ElevatedButton.icon(
                 onPressed: onPressed,
                 icon: Icon(
                   Icons.refresh,
-                  color: isDarkMode ? Colors.white : Colors.black,
+                  color: Theme.of(context).primaryColor,
                 ),
-                label: const Text('Refresh'),
+                label: Text(buttonText),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor:
-                      isDarkMode ? Colors.blue[800] : Colors.blue[500],
+                  backgroundColor: Theme.of(context).primaryColor,
                   padding:
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                   shape: RoundedRectangleBorder(
